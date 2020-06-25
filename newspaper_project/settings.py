@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     #Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',  # new
+    'articles.apps.ArticlesConfig', # new
     # 3rd Party
     'crispy_forms', # new
 ]
+TIME_ZONE = 'Africa/Nairobi' # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,3 +129,12 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # new
+
+DEFAULT_FROM_EMAIL = 'silasseje170100@daystar.ac.ke'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
